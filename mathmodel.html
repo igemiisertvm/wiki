@@ -433,7 +433,7 @@
                   <p class="pl-20 pr-20">These growth models would be needed to compare the changing growth rate and lag time when the fungal species is administered with our designed chitinases. A slower growth rate and higher lag time would help us to support our alternate hypothesis of developing chimeric chitinases with enhanced antifungal activity than wild-type chitinases.</p>
                   <br>
                   <br>
-                  <h3 class="text-center" class="pl-20 pr-20">OD based growth model</h3>
+                  <h3 class="text-center" class="pl-20 pr-20">\(IC_{50}\) of an Antifungal-Nipagin</h3>
                   <br>
                   <p class="pl-20 pr-20">
                     Nipagin, being a methylparaben, is an antifungal agent primarily used in cosmetics and food preservatives.<sup>[5]</sup>
@@ -616,12 +616,11 @@
             \[\begin{equation}
             \begin{aligned}
             &\frac{d[L-R]}{dt}=0\\
-            \implies & k_1[L][R]-K_2[L-R]=0\\
-            \implies & k_1[L][R]=k_2[L-R]\\
-            \implies &\frac{k_1}{k_2}=\frac{[L-R]}{[L][R]}=K_{eq}
+            \implies & k_1[L][R]-k_2[L-R]=0\\
+            \implies &\frac{k_1}{k_2}=\frac{[L-R]}{[L][R]}=k_{eq}
             \end{aligned}
             \end{equation}\]
-            <p class="pl-20 pr-20">The affinity of the ligand is usually represented by the dissociation constant, \(K_d=\frac{1}{K_{eq}}\)</p>
+            <p class="pl-20 pr-20">The affinity of the ligand is usually represented by the dissociation constant, \(K_d=\frac{1}{k_{eq}}\)</p>
             <p class="pl-20 pr-20">Considering the total concentration of ligand and total concentration of receptor to be constant for a small period of time, we have</p>
             \[\begin{equation}
             [L]=[L]_T-[L-R] \tag{2}
@@ -637,12 +636,115 @@
             \([L]\) = Ligand concentration at any time t<br>
             \([R]\) = Receptor concentration at any time t<br>
             \([L-R]\) = Ligand – Receptor complex<br>
-            \([L_T]\) = Total Ligand conc. [chitin octamer in our case] (known)<br>
-            \([R_T]\) = Total Receptor conc.[Chitinase in our case](known)<br>
-            \(k_1\) = Rate constant for association of complex (Determined from \(K_d\))<br>
-            \(k_2\) = Rate constant for dissociation of complex (Determined from \(K_d\))<br>
-            \(K_d =\frac{k_2}{k_1}\) = Dissociation constant (Determined from Autodoc protein modelling data, binding energy)
+            \([L]_T\) = Total Ligand conc. [chitin octamer in our case] (known) = 1 \(\mu m\)<br>
+            \([R]_T\) = Total Receptor conc.[Chitinase in our case](known) = 1 \(\mu m\)<br>
+            \(k_1\) = Rate constant for association of complex (determined from \(K_d\))<br>
+            \(k_2\) = Rate constant for dissociation of complex (determined from \(K_d\))<br>
+            \(K_d =\frac{k_2}{k_1}\) = Dissociation constant (determined from Autodoc protein modelling data, binding energy)
             <br>
+            <br>
+            <br>
+            <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Chitinase type</th>
+                <th scope="col">Ligand-Receptor complex concentration</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><p>Plant chitinase combo 1</p></td>
+            <td><p>0.957205</p></td>
+            </tr>
+
+            <tr>
+            <td><p>Plant chitinase combo 2</p></td>
+            <td><p>0.94672139</p></td>
+            </tr>
+
+            <tr>
+            <td><p>Barley</p></td>
+            <td><p>0.93794263</p></td>
+            </tr>
+
+            <tr>
+            <td><p>Wheat</p></td>
+            <td><p>0.83258658</p></td>
+            </tr>
+
+            <tr>
+            <td><p>Bacterial chitinase combo 1</p></td>
+            <td><p>0.92756562</p></td>
+            </tr>
+
+            <tr>
+            <td><p>Bacterial chitinase combo 2</p></td>
+            <td><p>0.93296366</p></td>
+            </tr>
+
+            <tr>
+            <td><p>Serratia marcescens</p></td>
+            <td><p>0.96870234</p></td>
+            </tr>
+
+            <tr>
+            <td><p>Streptomyces orientalis</p></td>
+            <td><p>0.8934335</p></td>
+            </tr>
+            </tbody>
+          </table>
+          <p clas=="pl-20 pr-20">The graph has been plotted using JSim Version 2 software, by putting all the required values. The code can be found here.</p>
+          <div class="image-block, text-center">
+            <img src="assets/img/drylab/LR_interaction.png" alt="sample image" class="img-fluid">
+            <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
+          </div>
+          <p clas=="pl-20 pr-20">From the graph and the concentration of the Ligand-Receptor complex, it can be concluded that the engineered chitinases have more tendency to bind to the chitin polymer than the wild-type chitinase at any given time.</p>
+          <p clas=="pl-20 pr-20">Note: This model depicts the binding activity of the protein to chitin octamer; itThe backward does not show the antifungal activity of the engineered protein, as only chitin polymer is taken into consideration, rather than the complex cell wall of the fungus.</p>
+          <br>
+          <br>
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-xl-10 col-lg-10 ">
+          <section class="sample-text-area">
+          <div class="container box_1170">
+            <h2 class="text-center">Protein Estimation</h2>
+            <br>
+            <p class="pl-20 pr-20">
+              We tried to estimate the amount of IPTG that would be required for the optimal protein production so as to predict and thereby help with the experimental design.
+            </p>
+            <p class="pl-20 pr-20">We also predicted the max amount of protein that a single E.coli cell would be able to produce and further went on to verify our predictions with experimental results. To get IPTG vs Protein output and Time vs Max Protein output curve, we tried modeling every metabolic process that takes place inside the cell after IPTG induction that is responsible for the production of our enzyme.</p>
+            <br>
+            <div class="image-block, text-center">
+              <img src="assets/img/drylab/protein_estimate_01.png" alt="sample image" class="img-fluid">
+              <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
+            </div>
+            <p class="pl-20 pr-20">
+              The gene of our interest is expressed in the BL21 DE(3) strain of E.coli bacteria, whose expression will be under the inducible promoter. The inducer here is IPTG (Isopropyl β-d-1-thiogalactopyranoside). The T7 RNA polymerase which binds to the promoter of our gene of interest and helps in transcription is further under the control of the Lac operon. The IPTG thus have to bind with both:</p>
+              <ul class="ordered-list">
+                    <li>Lac repressor produced by LacI gene in genomic DNA (to enable the transcription of T7 RNA polymerase) and</li>
+                    <li>Lac repressor produced by LacI gene in plasmid DNA so as to free the site at which T7 RNA Polymerase binds and transcribes the gene of interest.</li>
+              </ul>
+              <br>
+              <br>
+            <p class="pl-20 pr-20">
+              The metabolic processes for Enzyme production are described in terms of the following Ordinary differential equations (ODEs):<sup>[9]</sup>
+            </p>
+            <ul class="ordered-list">
+                  <li>Transcription of LacI mRNA: \(\phi\stackrel{K_{tcI}}{\longrightarrow}mRNA_{LacI}\)<br>
+                    Decay of LacI mRNA: \(mRNA_{LacI}\stackrel{K_{dmI}}{\longrightarrow}\phi\)<br>
+                  </li>
+                  \[\begin{equation}
+                  \frac{d[mRNA_{LacI}]}{dt}=K_{tcI}-K_{dmI}[mRNA_{LacI}]
+                  \end{equation}\]
+                  <li>Translation of LacI: \(mRNA_{LacI}\stackrel{K_{tl}}{\longrightarrow}mRNA_{LacI}+LacI\)<br>
+                  Decay of LacI: \(LacI\stackrel{K_{dpI}}{\longrightarrow}\phi\)</li>
+                  \[\begin{equation}
+                  \frac{d[LacI]}{dt}=K_{tl}[mRNA_{LacI}]-K_{dpI}[LacI]
+                  \end{equation}\]
+                  <li>Formation of LacI and IPTG complex: \(LacI+IPTG_{in} \underset{K_{fI}}{\stackrel{K_{bI}}{\rightleftharpoons}} LacI-IPTG_{in}\)
+            </ul>
+          </div>
+        </section>
           <!-- About Area End -->
     </main>
     <footer>
