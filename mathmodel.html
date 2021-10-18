@@ -175,6 +175,54 @@
                             <h2>Mathematical Modeling</h2>
                             <p class="pl-20 pr-20">Mathematical modeling is an integral part of understanding the feasibility of our project. Here, for MOLDEMORT, we have attempted to model extremely crucial components of our project using mathematical equations to predict how our chimeric protein may work in-vitro. We have provided all the equations that have been in use, along with our understanding of the requirements of the models. The data thus obtained can be further used to design experiments in the wet lab.</p>
                         </div>
+                        <section class="sample-text-area">
+                    			<div class="container box_1170">
+                    				<h2 class="text-center">Fungal Growth Models</h2>
+                            <br>
+                            <p class="pl-20 pr-20">
+                              The team has identified seven fungal species through morphology and Sanger sequencing. To check the activity of our chitinase enzymes, we need to determine the growth rate and lag phase of the species to compare it with the changed parameters when inflicted with the extracted protein.
+                            </p>
+                            <p class="pl-20 pr-20">To analyze the growth of the fungus, two different methods were used:</p>
+                            <br>
+                            <h3 class="text-center" class="pl-20 pr-20">Surface area based growth model</h3>
+                            <br>
+                    				<p class="pl-20 pr-20">
+                              When grown on a Petri plate in a PDA (Potato dextrose agar) medium, fungus tends to grow radially (given no contamination). The increasing radius and hence the increasing surface area is a parameter that can be used to check its growth rate over time.<sup>[1]</sup>
+                            </p>
+                            <p class="pl-20 pr-20">
+                              The unidentified samples were inoculated on Petri plates and observed for 4-5 days to capture images of the growing fungus. It was assumed that inoculum for all fungal species was of equal size. The images were aligned and analyzed using the ImageJ software, where the radius and the corresponding area were measured.
+                            </p>
+                            <div class="image-block, text-center">
+                              <img src="assets/img/drylab/ImageJ_demo.png" alt="sample image" class="img-fluid">
+                              <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
+                            </div>
+                            <p class="pl-20 pr-20">The team has considered several growth models, which were mostly used for bacterial growth, yet can be used for fungal growth as well.<sup>[2][3]</sup></p>
+                            <h4 class="pl-20 pr-20">Gompertz</h4>
+                            \[\begin{equation}
+                            y=y_{0}+C \cdot exp\left(-exp\left(\frac{\mu}{C+1}e(\lambda-t)\right)\right)
+                            \end{equation}\]
+                            <h4 class="pl-20 pr-20">Logistic</h4>
+                            \[\begin{equation}
+                            y=y_{0}+\frac{C}{1+ exp\left(\frac{4\mu}{C+2}(\lambda-t)\right)}
+                            \end{equation}
+                            \]
+                            <h4 class="pl-20 pr-20">Richards</h4>
+                            \[\begin{equation}
+                            y=y_{0}+\frac{C}{\left(1+\beta e^{1+\beta}\cdot exp\left(\frac{\mu}{C}(1+\beta)(1+\frac{1}{\beta})(\lambda-t)\right)\right)^{\frac{1}{\beta}}}
+                            \end{equation}\]
+
+                            Where,<br>
+                            \(y_0\) = Initial log count or absorbance<br>
+                            \(y\) = Log count or absorbance at time \(t\)<br>
+                            \(\mu\) = Maximum growth rate<br>
+                            \(\lambda\) = Lag time<br>
+                            \(C\) = Increase in log count or absorbance from \(y_0\) to \(y_{max}\)
+                            \(\beta\) = Model coefficient
+                            <br>
+                            <br>
+                            <p class="pl-20 pr-20">These three equations were used to fit the curve and find the unknown parameters. It has been observed that the Gompertz model of growth gives us the least RMSE (Root Mean Square Error), hence proving to be the best model for our data.</p>
+                    			</div>
+                    		</section>
 												<table class="table table-hover table-bordered">
   											<thead>
 											    <tr>
@@ -184,8 +232,8 @@
 											      <th scope="col">R-square</th>
 														<th scope="col">Adjusted R-square</th>
 														<th scope="col">RMSE</th>
-														<th scope="col">\(\mu\) (max growth rate)</th>
-														<th scope="col">\(l\) (lag time)</th>
+														<th scope="col">\(\mu\) (max growth rate) in \(cm^2/hr\)</th>
+														<th scope="col">\(l\) (lag time) in \(hr\)</th>
 														<th scope="col">\(B\)</th>
 											    </tr>
 											  </thead>
@@ -290,6 +338,7 @@
                           </tr>
 											  </tbody>
 												</table>
+                        <p><strong>SSE:</strong> Sum of squared estimate of errors ; </p>
                     </div>
                 </div>
         <!-- About Area End -->
