@@ -741,9 +741,529 @@
                   \[\begin{equation}
                   \frac{d[LacI]}{dt}=K_{tl}[mRNA_{LacI}]-K_{dpI}[LacI]
                   \end{equation}\]
-                  <li>Formation of LacI and IPTG complex: \(LacI+IPTG_{in} \underset{K_{fI}}{\stackrel{K_{bI}}{\rightleftharpoons}} LacI-IPTG_{in}\)
-            </ul>
+                  <li>Formation of LacI and IPTG complex: \(LacI+IPTG_{in} \underset{K_{fI}}{\stackrel{K_{bI}}{\rightleftharpoons}} LacI-IPTG_{in}\)<\li>
+                    \[\begin{equation}
+                    \frac{d[LacI-IPTG_{in}]}{dt}=K_{fI}[LacI][IPTG_{in}]-K_{bI}[LacI-IPTG_{in}]
+                    \end{equation}\]
+                  <li>Passive diffusion of IPTG across the cell membrane of E. coli:
+                    \(IPTG_{ex} \underset{K_{pdiff}}{\stackrel{K_{pdiff}}{\rightleftharpoons}} IPTG_{in}\)</li>
+                    \[\begin{equation}
+                    \frac{d[IPTG_{in}]}{dt}=K_{pdiff}([IPTG_{in}]-[IPTG_{ex}])+K_{fdiff}([LacY\_ IPTG_{ex}])
+                    \end{equation}\]
+                  <li>Transcription of LacY mRNA:
+                  \(O\stackrel{K}\longrightarrow O+mRNA_{LacY}\)<br>
+                  Decay of LacY mRNA: \(mRNA_{LacY}\stackrel{K_{dmY}}{\longrightarrow}\phi\)</li>
+                  \[\begin{equation}
+                          \frac{d[mRNA_{LacY}]}{dt}=K_{tcY}[O_T]-K_{dmY}[mRNA_{LacY}]
+                  \end{equation}\]
+                  <li>Translation of LacY: \(mRNA_{LacY}\stackrel{K_{tlY}}{\longrightarrow}RNA_{LacY}+LacY\)<br>
+                    Decay of LacY:
+                    \(LacY\stackrel{K_{dY}}{\longrightarrow}\phi\)<br>
+                    Formation of IPTG-LacY complex and facilitated diffusion
+                    \(LacY+IPTG_{ex}\underset{K_{bY}}{\stackrel{K_{fY}}{\rightleftharpoons}}LacY\_IPTG\stackrel{K_{fdiff}}{\longrightarrow}LacY+IPTG_{in}\)</li>
+                  <li>Formation of \(LacY-IPTG_{ex}\) complex: \(LacY+IPTG_{ex}\underset{K_{bY}}{\stackrel{K_{fY}}{\rightleftharpoons}}LacY\_IPTG_{ex}\)<br></li>
+                    \[\begin{equation}
+                    \frac{d[LacY\_IPTG_{ex}]}{dt}=-(K_{pdiff}+K_{bY})[LacY-IPTG]_{ex}+K_{fY}[LacY][IPTG]-K_{dY\_IPTG}[LacY\_IPTG_{ex}]
+                    \end{equation}\]
+                  <li>Free LacI present (that is, not bounded to IPTG), which will prevent the transcription of T7 RNA polymerase<br></li>
+                    \[\begin{equation}
+                    \frac{d[LacI]_F}{dt}=(K_{tl}[mRNA_{LacI}]-K_{dpI}[LacI])-(K_{fI}[LacI][IPTG_{in}]-K_{bI}[LacI\_IPTG_{in}])
+                    \end{equation}\]
+                    <br>
+                    From here, \([IPTG_{in}]\) will be replaced by \([IPTG_{Pin}]\) ; intracellular IPTG due to facilitated diffusion by LacY produced by the plasmid of E.coli due to its copy number. The [IPTG] diffused by this virtue can bind to LacI-repressor produced by the genomic as well.
+                    <li>Production of T7 RNA polymerase mRNA:
+                    \(\phi\stackrel{K_{tcT7}}{\longrightarrow}mRNA_{T7}\)<br>
+                    Decay of T7 RNA polymerase mRNA:
+                     \(mRNA_{T7}\stackrel{K_{dmT7}}{\longrightarrow}\phi\)<br>
+                    Binding of free LacI and \(mRNA_{T7}\):
+                      \(LacI_{F}+mRNA_{T7}\stackrel{K_{aff}}{\longrightarrow}\phi\)<br></li>
+                    \[\begin{equation}
+                          \frac{d[mRNA_{T7}]}{dt}=K_{tcT7}-K_{dmT7}[mRNA_{T7}]-K_{aff}[LacI]_F
+                      \end{equation}\]
+                      <li>T7 RNA Polymerase production :
+                      \(mRNA_{T7}\longrightarrow{K_{tlT7}}mRNA_{T7}+T7\_RNA\_pol\)<br>
+                        \(T7\_RNA\_pol\stackrel{K_{dpT7}}{\longrightarrow}\phi\)<br></li>
+                      \[\begin{equation}
+                            \frac{d[T7\_RNA\_pol]}{dt}=K_{tlT7}[mRNA_{T7}]-K_{dpT7}[T7\_RNA\_pol]
+                        \end{equation}\]
+                      Considering the plasmid part of the E.coli, the copy number of pET28a is 40.
+                      <li>Production of LacI mRNA:
+                      \[\begin{equation}
+                          	\frac{d[mRNA_{PLacI}]}{dt}=K_{PtcI}-K_{PdmI}[mRNA_{PLacI}]\cdot Copy\quad number
+                      	\end{equation}\]
+                        <li>\[\begin{equation}
+                      	\frac{d[LacI_P]}{dt}=K_{Ptl}[mRNA_{PLacI}]-K_{PdpI}[LacI]
+                  	    \end{equation}\]</li>
+                        <li>\[\begin{equation}
+                      	\frac{d[LacI-IPTG_{in}]_P}{dt}=K_{PfI}[LacI_P][IPTG_{Pin}]-K_{PbI}[LacI-IPTG_{in}]_P
+                  	    \end{equation}\]
+                       </li>
+                       <li>
+                      	\[\begin{equation}
+                          	\frac{d[IPTG_{Pin}]}{dt}=K_{Ppdiff}([IPTG]_{ex}-[IPTG_{Pin}])+K_{Pfdiff}([LacY_P\_ IPTG_{Pex}])
+                      	\end{equation}\]
+                       </li>
+                       <li>
+                       	Production of LacY mRNA:</li><br>
+                        \[\begin{equation}
+                      	\frac{d[mRNA_{LacY}]_P}{dt}=K_{PtcY}[O_T]-K_{PdmY}[mRNA_{LacY}]_P
+                  	    \end{equation}\]
+                        <li>
+                      	Production of LacY:</li><br>
+                        \[\begin{equation}
+                        \frac{d[LacY]_P}{dt}=K_{PtlY}[mRNA_{LacY}]_P+(K_{Ppdiff}+K_{PbY})[LacY\_IPTG_{ex}]_P-K_{PfY}[LacY][IPTG_{ex}]-K_{PdY}[LacY]
+                      	\end{equation}\]
+                        <li>
+                      	\[\begin{equation}
+                         	\frac{d[LacY\_IPTG_{ex}]_P}{dt}=-(K_{Ppdiff}+K_{PbY})[LacY-IPTG]_{Pex}+K_{PfY}[LacY]_P[IPTG_{ex}]-K_{PdY\_IPTG}[LacY\_IPTG_{ex}]_P
+                            	\end{equation}\]
+                        </li>
+                        <li>
+                      	Free LacI:</li><br>
+                       \[\begin{equation}
+                          	\frac{d[LacI]_{PF}}{dt}=(K_{Ptl}[mRNA_{LacI}]_P-K_{PdpI}[LacI]_P)-(K_{PfI}[LacI]_P[IPTG_{Pin}]-K_{PbI}[LacI\_IPTG_{in}]_P)
+                      	\end{equation}\]
+                        <li>
+                      	Binding of RNA Polymerase:
+                      \(RNA\_pol\underset{K_{ub}}{\stackrel{K_{b}}{\rightleftharpoons}}RNA\_pol_{B}\)</li><br>
+                      \[\begin{equation}
+                        	\frac{d[T7\_RP_B]}{dt}=K_b[T7\_RNA\_pol]-K_{ub}[T7\_RP_B]-K_{aff}[LacI]_F
+                        \end{equation}\]
+                        <li>
+                      	Decay of mRNA Chitinase:
+                      \(mRNA_{Chitinase}{\stackrel{K_{dmChitinase}}{\longrightarrow}}\phi\)</li><br>
+                      \[\begin{equation}
+                        	\frac{d[mRNA_{Chitinase}]}{dt}=K_{leaky}+\frac{K_1[T7\_RP_B]^n}{[K_m]^n+[T7\_RP_B]^n}-K_{dmChitinase}[mRNA_{Chitinase}]
+                        \end{equation}\]
+                        <li>
+                        	Chitinase production:
+                      \(mRNA_{Chitinase}{\stackrel{K_{tlChitinase}}{\longrightarrow}}mRNA_{Chitinase}+Chitinase\)<br>
+                            	Decay of the chitinase protein:
+                      \(Chitinase{\stackrel{K_{dChitinase}}{\longrightarrow}}\phi\)</li><br>
+                      \[\begin{equation}
+                        	\frac{d[Chitinase]}{dt}=K_{tlChitinase}[mRNA_{Chitinase}]-K_{dChitinase}[Chitinase]
+                        \end{equation}\]
+                </ul>
+              <br>
+                <br>
+            <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td><p>[\(mRNA_{LacI}\)]</p></td>
+              <td><p>mRNA of LacI</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[LacI]</p></td>
+              <td><p>LacI</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[\(IPTG_{in}\)]</p></td>
+              <td><p>Intracellular IPTG</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[\(IPTG_{ex}\)]</p></td>
+              <td><p>Extracellular IPTG</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[\(mRNA_{LacY}\)]</p></td>
+              <td><p>mRNA of LacY</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[LacY]</p></td>
+              <td><p>LacY</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[\(LacY - IPTG_{ex}\)]</p></td>
+              <td><p>\(LacY - IPTG_{extracellular}\) complex</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[\(LacI - IPTG_{in}\)]</p></td>
+              <td><p>\(LacI - IPTG_{intracellular}\) complex</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[\(LacI_{F}\)]</p></td>
+              <td><p>Free (unbounded) LacI</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[\(mRNA_{\text{T7 RNA POL}}\)]</p></td>
+              <td><p>mRNA of T7 RNA polymerase</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[T7 RNA POL]</p></td>
+              <td><p>T7 RNA polymerase</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[T7 \(RP_{B}\)]</p></td>
+              <td><p>T7 RNA polymerase bound to promoter region</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[\(mRNA_{\text{chitinase}}\)]</p></td>
+              <td><p>mRNA of Chitinase</p></td>
+              </tr>
+
+              <tr>
+              <td><p>[Chitinase]</p></td>
+              <td><p>Chitinase</p></td>
+              </tr>
+
+              </tbody>
+              </table>
+              <p class="pl-20 pr-20">
+                Note: The elements for the plasmid part are represented with the same Symbols but have an additional “P” added to them to signify plasmid.
+              </p>
+              <table class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Symbol</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+              <td><p>K_{tcI}</p></td>
+              <td rowspan="2" ><p>Rate constant for transcription of LacI</p></td>
+              <td rowspan="2" ><p>0.23nMmin^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PtcI}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{dmI}</p></td>
+              <td rowspan="2" ><p>Degradation constant of LacI mRNA</p></td>
+              <td rowspan="2" ><p>0.462 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PdmI}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{tl}</p></td>
+              <td rowspan="2" ><p>Rate constant for translation of LacI</p></td>
+              <td rowspan="2" ><p>15 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{Ptl}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{dpI}</p></td>
+              <td rowspan="2" ><p>Degradation constant for LacI</p></td>
+              <td rowspan="2" ><p>0.2 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PdpI}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{pdiff}</p></td>
+              <td rowspan="2" ><p>Rate constant for passive diffusion of IPTG</p></td>
+              <td rowspan="2" ><p>0.92 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{Ppdiff}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{fdiff}</p></td>
+              <td rowspan="2" ><p>Rate constant of facilitated diffusion</p></td>
+              <td rowspan="2" ><p>6*10^4 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{Pfdiff}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{fY}</p></td>
+              <td rowspan="2" ><p>Forward reaction rate constant for formation of LacY - IPTG complex</p></td>
+              <td rowspan="2" ><p>0.12nM^(-1)min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PfY}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{bY}</p></td>
+              <td rowspan="2" ><p>Backward reaction rate constant for the formation of LacY - IPTG complex</p></td>
+              <td rowspan="2" ><p>0.1 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PbY}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{dYI}</p></td>
+              <td rowspan="2" ><p>Degradation constant for LacY - IPTG complex</p></td>
+              <td rowspan="2" ><p>0.2 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PdYI}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{fI}</p></td>
+              <td rowspan="2" ><p>Forward reaction rate constant for formation of LacY - IPTG(intracellular) complex</p></td>
+              <td rowspan="2" ><p>0.12 nM^(-1)min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PfI}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{bI}</p></td>
+              <td rowspan="2" ><p>Backward reaction rate constant for formation of LacI - IPTG(intracellular) complex</p></td>
+              <td rowspan="2" ><p>12 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PbI}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{tcY}</p></td>
+              <td rowspan="2" ><p>Rate constant for transcription of LacY</p></td>
+              <td rowspan="2" ><p>0.5nMmin^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PtcY}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{dmY}</p></td>
+              <td rowspan="2" ><p>Degradation constant of LacY mRNA</p></td>
+              <td rowspan="2" ><p>0.462 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PdmY}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{tlY}</p></td>
+              <td rowspan="2" ><p>Rate constant of translation of LacY</p></td>
+              <td rowspan="2" ><p>30 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PtlY}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{dY}</p></td>
+              <td rowspan="2" ><p>Degradation constant for LacY</p></td>
+              <td rowspan="2" ><p>0.2 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{PdY}</p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{tcT7}</p></td>
+              <td><p>Rate constant of transcription of T7 RNA Pol</p></td>
+              <td><p>0.5 nMmin^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{dmT7}</p></td>
+              <td><p>Degradation constant of T7 RNA Pol mRNA</p></td>
+              <td><p>0.462 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{aff}</p></td>
+              <td><p>Affinity constant of LacI to the operator region</p></td>
+              <td><p>0.2 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{tlT7}</p></td>
+              <td><p>Rate constant of translation of T7 RNA Pol</p></td>
+              <td><p>6.116 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{dpT7}</p></td>
+              <td><p>Degradation constant of T7 RNA Pol</p></td>
+              <td><p>0.462 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{b}</p></td>
+              <td><p>Binding constant of T7 RNA to Promoter</p></td>
+              <td><p>0.22 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{ub}</p></td>
+              <td><p>Unbinding constant</p></td>
+              <td><p>28.8 min^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{leaky}</p></td>
+              <td><p>Rate constant for leaky expression</p></td>
+              <td><p>0.01 nMmin^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_m</p></td>
+              <td><p>Michaelis Menten constant</p></td>
+              <td><p>3*10^5 nM<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_1</p></td>
+              <td><p>Transcription Rate constant of Chitinase mRNA</p></td>
+              <td><p>2.3658 * 10^3 nMmin^(-1)<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{dm_chitinase}</p></td>
+              <td><p>Degradation Rate constant for Chitinase mRNA</p></td>
+              <td><p>0.462min^-1<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{tl_chitinase}</p></td>
+              <td><p>Translation Rate constant for Chitinase</p></td>
+              <td><p>10 min^-1<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              <tr>
+              <td><p>K_{dp_chitinase}</p></td>
+              <td><p>Degradation constant for chitinase</p></td>
+              <td><p>0.2 min^-1<a href="https://pubmed.ncbi.nlm.nih.gov/19186128/" >[9]</a></p></td>
+              </tr>
+
+              </tbody>
+              </table>
+              <div class="image-block, text-center">
+                <img src="assets/img/drylab/enzyme_conc_02.png" alt="sample image" class="img-fluid">
+                <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
+              </div>
+              <p class="pl-20 pr-20">Through our model, we were able to predict that at the concentration of 0.1 - 1 mM IPTG, we can obtain optimal protein production. This prediction helped us in the design of experiments concerning the expression of the protein. It must be noted that these predictions are well in line with the standard procedures that are being used for IPTG induction.</p>
+              <p class="pl-20 pr-20">Our other area of interest was predicting the total amount of enzyme that could be produced by a single E Coli: Through experimental data, we got to know that 2 litres of culture produce about 20 mg of protein. Assuming there are 10^10 bacteria / L [10] of culture (general assumption) we were able to calculate the amount of protein produced by a single E.coli to be ~ 256000 nM. These experimental results are very close to our prediction which is 255853.577 nM/ cell.</p>
+              <div class="image-block, text-center">
+                <img src="assets/img/drylab/enzyme_conc_01.png" alt="sample image" class="img-fluid">
+                <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
+              </div>
           </div>
+        </section>
+        <section class="sample-text-area">
+        <div class="container box_1170">
+          <h2 class="text-center">Predicting enzyme activity</h2>
+          <br>
+          <p class="pl-20 pr-20">
+            Since our chimeric Chitinase comprises domains from two different chitinases, with both of them having a binding domain, we could, in theory,  predict the activity of our chitinase by analyzing the binding of the substrate with individual domains and further coupling the activity to get a combined activity.<sup>[11]</sup>
+          </p>
+          <div class="image-block, text-center">
+            <img src="assets/img/drylab/enzyme_activity.png" alt="sample image" class="img-fluid">
+            <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
+          </div>
+          <p class="pl-20 pr-20">
+            We here analyse the activity of bacterial Chitinase combo 2 consisting of domains from two chitinases - Serratia marcescens chitinase and Streptomyces orientalis chitinase. Here instead of Streptomyces orientalis we have used proxy species of the same genus Streptomyces griseus as the literature data for Streptomyces orientalis was unavailable. The dissociation constants and Vmax for both chitinases were determined from the literature survey.<sup>[12][13]</sup>
+          </p>
+          <p class="pl-20 pr-20">
+            The Vmax for chitinase was found to be 2.3739 mmol/min, which gives us an idea of how adding domains from high activity enzymes could in theory improve the efficiency of low activity enzymes.
+          </p>
+          <div class="image-block, text-center">
+            <img src="assets/img/drylab/lineweaver_plot.png" alt="sample image" class="img-fluid">
+            <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
+          </div>
+        </section>
+        <section class="sample-text-area">
+        <div class="container box_1170">
+          <h2 class="text-center">Nanoencapsulation</h2>
+          <br>
+          <br>
+          <p class="pl-20 pr-20">
+            For the delivery of our chimeric chitinase into the human system, we are looking forward to proposing/ using nanoparticles (specifically PLGA) that are suitable due to their ability for controlled drug release, improved therapeutic efficiency, and reduction in the dose of drug administered.
+          </p>
+          <p class="pl-20 pr-20">
+            Upon doing assays using our engineered chimeric protein, we have found that our protein is stable at room temperature and shows promising activity.Thus, it further strengthens our proposal to use PLGA as a delivery molecule to the human body.
+          </p>
+          <p class="pl-20 pr-20">
+            PLGA - Poly(lactic-co-glycolic acid) is a synthetic copolymer made up of Lactic Acid (LA) and glycolic Acid(GA) and is extensively used for controlled drug delivery(approved by FDA). In an aqueous environment, the chain undergoes a hydrolytic attack on its ester bonds and degrades into LA and GA which are endogenous compounds normally metabolized through the Krebs cycle. By changing the LA/GA ratio and molecular weight in the polymer we could easily control the degradation time of the molecule. The degradation of the PLGA microsphere typically starts at the center of the sphere and the degradation front moves outwards.
+          </p>
+          <p class="pl-20 pr-20">
+            Here we are trying to model and predict the degradation kinetics of PLGA (LA/GA ratio 50:50 and Mw 41.9 KDa in human body which helps us understanding the controlled drug release in human body.
+          </p>
+          <p class="pl-20 pr-20">
+            Protein release from PLGA Microsphere(MS) is an autocatalytic polymer degradation mechanism, involving 3 prominent steps:<sup>[14]</sup>
+          </p>
+          <ul>
+            <li>Water intruding in the device through its micro/macropores, and subsequent occurring of matrix plasticization</li>
+            <li>Hydrolytically initiation of PLGA degradation at chain backbone and production of  acidic by-products</li>
+            <li>Produced acids further catalyze polymer degradation</li>
+          </ul>
+          <p class="pl-20 pr-20">Assumptions made</p>
+          <ul class="ordered-list">
+            <li>Spherical symmetry</li>
+            <li>Invariant geometry during protein unloading</li>
+          </ul>
+          <p class="pl-20 pr-20">
+            PLGA degradation governs protein solubilization and release. PLGA degradation is promoted in the MS center due to the polymer autocatalytic degradation mechanism, causing a decrease in pH and enhancing the degradation process.
+          </p>
+          <div class="image-block, text-center">
+            <img src="assets/img/drylab/nano_graph.png" alt="sample image" class="img-fluid">
+            <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
+          </div>
+          <p class="pl-20 pr-20">
+            This model predicts that our PLGA microsphere(Mw = 41.9 KDa) will undergo full disintegration in about 60 days (2 months) in physiological conditions. The rate of protein release will be in proportion with the decay rate of the microsphere and hence the dynamics of protein released could be analyzed using this model.
+          </p>
+        </section>
+        <section class="sample-text-area">
+        <div class="container box_1170">
+          <h2 class="text-center">References</h2>
+          <br>
+          <br>
+          <ul class="ordered-list">
+            <li>Aunsbjerg SD, Andersen KR, Knøchel S. Real-time monitoring of fungal inhibition and morphological changes. J Microbiol Methods. 2015;119:196-202. doi:10.1016/j.mimet.2015.10.024</li>
+            <li>María-Leonor Pla, Sandra Oltra, María-Dolores Esteban, Santiago Andreu, and Alfredo Palop. (2015). Comparison of Primary Models to Predict Microbial Growth by the Plate Count and Absorbance Methods.. BioMed Research International.doi.org/10.1155/2015/365025</li>
+            <li>Tjørve KMC, Tjørve E (2017) The use of Gompertz models in growth analyses, and new Gompertz-model approach: An addition to the Unified-Richards family. PLoS ONE 12(6): e0178691. https://doi.org/10.1371/journal.pone.0178691</li>
+            <li>Langvad F. A rapid and efficient method for growth measurement of filamentous fungi. J Microbiol Methods. 1999;37(1):97-100. doi:10.1016/s0167-7012(99)00053-6</li>
+            <li>National Center for Biotechnology Information (2021). PubChem Compound Summary for CID 7456, Methylparaben. Retrieved October 8, 2021 from https://pubchem.ncbi.nlm.nih.gov/compound/Methylparaben</li>
+            <li>Hoetelmans RM. "IC50 versus EC50". PK-PD relationships for anti-retroviral drugs. Amsterdam: Slotervaart Hospital. Archived from the original on 2017-05-28 – via U.S. Food and Drug Administration</li>
+            <li>Sebaugh JL. Guidelines for accurate EC50/IC50 estimation. Pharm Stat. 2011;10(2):128-134. doi:10.1002/pst.426</li>
+            <li>Volpe DA, Hamed SS, Zhang LK. Use of different parameters and equations for calculation of IC₅₀ values in efflux assays: potential sources of variability in IC₅₀ determination. AAPS J. 2014;16(1):172-180. doi:10.1208/s12248-013-9554-7</li>
+            <li>Stamatakis M, Mantzaris NV. Comparison of deterministic and stochastic models of the lac operon genetic network [published correction appears in Biophys J. 2009 Nov 4 ;97(9):2651]. Biophys J. 2009;96(3):887-906. doi:10.1016/j.bpj.2008.10.028</li>
+            <li>Benedik, Michael. (2016). Re: What is the average number of bacteria counts per mL of broth?. Retrieved from: https://www.researchgate.net/post/What-is-the-average-number-of-bacteria-counts-per-mL-of-broth/576158de217e20313c6aa5fd/citation/download</li>
+            <li>https://depts.washington.edu/wmatkins/kinetics/index.html</li>
+            <li>Zarei M, Aminzadeh S, Zolgharnein H, et al. Characterization of a chitinase with antifungal activity from a native Serratia marcescens B4A. Braz J Microbiol. 2011;42(3):1017-1029. doi:10.1590/S1517-838220110003000022</li>
+            <li>M. Rabeeth, A. Anitha and Geetha Srikanth, 2011. Purification of an Antifungal Endochitinase from a Potential Biocontrol Agent Streptomyces griseus. Pakistan Journal of Biological Sciences, 14: 788-797.</li>
+            <li>Netti PA, Biondi M, Frigione M. Experimental Studies and Modeling of the Degradation Process of Poly(Lactic-co-Glycolic Acid) Microspheres for Sustained Protein Release. Polymers. 2020; 12(9):2042. https://doi.org/10.3390/polym12092042</li>
+          </ul>
         </section>
           <!-- About Area End -->
     </main>
