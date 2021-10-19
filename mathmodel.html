@@ -729,121 +729,185 @@
             <p class="pl-20 pr-20">
               The metabolic processes for Enzyme production are described in terms of the following Ordinary differential equations (ODEs):<sup>[9]</sup>
             </p>
-            <ul class="ordered-list">
-                  <li>Transcription of LacI mRNA: \(\phi\stackrel{K_{tcI}}{\longrightarrow}mRNA_{LacI}\)<br>
-                    Decay of LacI mRNA: \(mRNA_{LacI}\stackrel{K_{dmI}}{\longrightarrow}\phi\)<br>
+            <ul class="unordered-list">
+              <b>For Genomic Part of E-coli</b>
+           <br>
+           <br>
+              <li>Transcription of LacI mRNA:
+               \[\begin{equation} \phi\stackrel{K_{tcI}}{\longrightarrow}mRNA_{LacI}<br>
+               \end{equation}\]
+                Decay of LacI mRNA:
+               \[\begin{equation} mRNA_{LacI}\stackrel{K_{dmI}}{\longrightarrow}\phi<br>
+               \end{equation}\]
+
+              </li>
+              \[\begin{equation}
+              \frac{d[mRNA_{LacI}]}{dt}=K_{tcI}-K_{dmI}[mRNA_{LacI}]\tag{1}
+              \end{equation}\]
+              <li>Translation of LacI:
+              \[\begin{equation}
+              mRNA_{LacI}\stackrel{K_{tl}}{\longrightarrow}mRNA_{LacI}+LacI<br>
+              \end{equation}\]
+              Decay of LacI:
+              \[\begin{equation}
+              LacI\stackrel{K_{dpI}}{\longrightarrow}\phi
+             \end{equation}\]
+              \[\begin{equation}
+              \frac{d[LacI]}{dt}=K_{tl}[mRNA_{LacI}]-K_{dpI}[LacI]\tag{2}
+              \end{equation}\]
+              <li>Formation of LacI and IPTG complex:
+              \[\begin{equation}
+              LacI+IPTG_{in} \underset{K_{bI}}{\stackrel{K_{fI}}{\rightleftharpoons}} LacI-IPTG_{in}
+              \end{equation}\]
+                \[\begin{equation}
+                \frac{d[LacI-IPTG_{in}]}{dt}=K_{fI}[LacI][IPTG_{in}]-K_{bI}[LacI-IPTG_{in}]\tag{3}
+                \end{equation}\]
+              <li>Passive diffusion of IPTG across the cell membrane of E. coli:
+                \[\begin{equation}
+                IPTG_{ex} \underset{K_{pdiff}}{\stackrel{K_{pdiff}}{\rightleftharpoons}} IPTG_{in}
+                \end{equation}\]
+                \[\begin{equation}
+                \frac{d[IPTG_{ex}]}{dt}=K_{pdiff}([IPTG_{ex}]-[IPTG_{in}])+K_{fdiff}([LacY-IPTG_{ex}])\tag{4}
+                \end{equation}\]
+              <li>Transcription of LacY mRNA:
+              \[\begin{equation}
+              O\stackrel{K}\longrightarrow O+mRNA_{LacY}
+              \end{equation}\]
+              Decay of LacY mRNA:
+              \[\begin{equation}
+              mRNA_{LacY}\stackrel{K_{dmY}}{\longrightarrow}\phi
+              \end{equation}\]
+              \[\begin{equation}
+                      \frac{d[mRNA_{LacY}]}{dt}=K_{tcY}[O_T]-K_{dmY}[mRNA_{LacY}]\tag{5}
+              \end{equation}\]
+              <li>Translation of LacY:
+               \[\begin{equation}
+              mRNA_{LacY}\stackrel{K_{tlY}}{\longrightarrow}RNA_{LacY}+LacY
+              \end{equation}\]
+                Decay of LacY:
+               \[\begin{equation}
+                LacY\stackrel{K_{dY}}{\longrightarrow}\phi\
+                \end{equation}\]
+                \begin{equation}
+                \frac{d[LacY]}{dt}=K_{tlY}[mRNA_{LacY}]+(K_{pdiff}+K_{bY})[LacY-IPTG_{ex}]-K_{fY}[LacY][IPTG_{ex}]-K_{dY}[LacY]\tag{6}
+                 \end{equation}
+
+                Formation of IPTG-LacY complex and facilitated diffusion
+                \[\begin{equation}
+                LacY+IPTG_{ex}\underset{K_{bY}}{\stackrel{K_{fY}}{\rightleftharpoons}}LacY-IPTG\stackrel{K_{fdiff}}{\longrightarrow}LacY+IPTG_{in}
+
+                \end{equation}\]
+              <li>Formation of \(LacY-IPTG_{ex}\) complex:
+              \[\begin{equation}
+              LacY+IPTG_{ex}\underset{K_{bY}}{\stackrel{K_{fY}}{\rightleftharpoons}}LacY-IPTG_{ex}
+              \end{equation}\]
+              </li>
+                \[\begin{equation}
+                \frac{d[LacY-IPTG_{ex}]}{dt}=-(K_{pdiff}+K_{bY})[LacY-IPTG]_{ex}+K_{fY}[LacY][IPTG]-K_{dY\_IPTG}[LacY-IPTG_{ex}]\tag{7}
+                \end{equation}\]
+              <li>Free LacI present (that is, not bounded to IPTG), which will prevent the transcription of T7 RNA polymerase<br></li>
+                \[\begin{equation}
+                \frac{d[LacI]_F}{dt}=(K_{tl}[mRNA_{LacI}]-K_{dpI}[LacI])-(K_{fI}[LacI][IPTG_{in}]-K_{bI}[LacI-IPTG_{in}])\tag{8}
+                \end{equation}\]
+                <br>
+                From here, \([IPTG_{in}]\) will be replaced by \([IPTG_{Pin}]\) ; intracellular IPTG due to facilitated diffusion by LacY produced by the plasmid of E.coli due to its high copy number. The [IPTG] diffused by this virtue can bind to LacI-repressor produced by the genomic as well.
+                <br>
+                <br>
+                <li>Production of T7 RNA polymerase mRNA:
+                \[\begin{equation}
+                \phi\stackrel{K_{tcT7}}{\longrightarrow}mRNA_{T7}\
+                \end{equation}\]
+                Decay of T7 RNA polymerase mRNA:
+                 \[\begin{equation}
+                 mRNA_{T7}\stackrel{K_{dmT7}}{\longrightarrow}\phi\
+                 \end{equation}\]
+                Binding of free LacI and \(mRNA_{T7}\):
+                 \[\begin{equation}
+                  LacI_{F}+mRNA_{T7}\stackrel{K_{aff}}{\longrightarrow}\phi
+                  \end{equation}\]
                   </li>
-                  \[\begin{equation}
-                  \frac{d[mRNA_{LacI}]}{dt}=K_{tcI}-K_{dmI}[mRNA_{LacI}]
+                \[\begin{equation}
+                      \frac{d[mRNA_{T7}]}{dt}=K_{tcT7}-K_{dmT7}[mRNA_{T7}]-K_{aff}[LacI]_F \tag{9}
                   \end{equation}\]
-                  <li>Translation of LacI: \(mRNA_{LacI}\stackrel{K_{tl}}{\longrightarrow}mRNA_{LacI}+LacI\)<br>
-                  Decay of LacI: \(LacI\stackrel{K_{dpI}}{\longrightarrow}\phi\)</li>
+                  <li>T7 RNA Polymerase production :
                   \[\begin{equation}
-                  \frac{d[LacI]}{dt}=K_{tl}[mRNA_{LacI}]-K_{dpI}[LacI]
-                  \end{equation}\]
-                  <li>Formation of LacI and IPTG complex: \(LacI+IPTG_{in} \underset{K_{fI}}{\stackrel{K_{bI}}{\rightleftharpoons}} LacI-IPTG_{in}\)<\li>
-                    \[\begin{equation}
-                    \frac{d[LacI-IPTG_{in}]}{dt}=K_{fI}[LacI][IPTG_{in}]-K_{bI}[LacI-IPTG_{in}]
+                  mRNA_{T7}\longrightarrow{K_{tlT7}}mRNA_{T7}+T7\_RNA\_pol
                     \end{equation}\]
-                  <li>Passive diffusion of IPTG across the cell membrane of E. coli:
-                    \(IPTG_{ex} \underset{K_{pdiff}}{\stackrel{K_{pdiff}}{\rightleftharpoons}} IPTG_{in}\)</li>
-                    \[\begin{equation}
-                    \frac{d[IPTG_{in}]}{dt}=K_{pdiff}([IPTG_{in}]-[IPTG_{ex}])+K_{fdiff}([LacY\_ IPTG_{ex}])
-                    \end{equation}\]
-                  <li>Transcription of LacY mRNA:
-                  \(O\stackrel{K}\longrightarrow O+mRNA_{LacY}\)<br>
-                  Decay of LacY mRNA: \(mRNA_{LacY}\stackrel{K_{dmY}}{\longrightarrow}\phi\)</li>
+                   \[\begin{equation} T7\_RNA\_pol\stackrel{K_{dpT7}}{\longrightarrow}\phi
+                   \end{equation}\]
+                   </li>
                   \[\begin{equation}
-                          \frac{d[mRNA_{LacY}]}{dt}=K_{tcY}[O_T]-K_{dmY}[mRNA_{LacY}]
-                  \end{equation}\]
-                  <li>Translation of LacY: \(mRNA_{LacY}\stackrel{K_{tlY}}{\longrightarrow}RNA_{LacY}+LacY\)<br>
-                    Decay of LacY:
-                    \(LacY\stackrel{K_{dY}}{\longrightarrow}\phi\)<br>
-                    Formation of IPTG-LacY complex and facilitated diffusion
-                    \(LacY+IPTG_{ex}\underset{K_{bY}}{\stackrel{K_{fY}}{\rightleftharpoons}}LacY\_IPTG\stackrel{K_{fdiff}}{\longrightarrow}LacY+IPTG_{in}\)</li>
-                  <li>Formation of \(LacY-IPTG_{ex}\) complex: \(LacY+IPTG_{ex}\underset{K_{bY}}{\stackrel{K_{fY}}{\rightleftharpoons}}LacY\_IPTG_{ex}\)<br></li>
-                    \[\begin{equation}
-                    \frac{d[LacY\_IPTG_{ex}]}{dt}=-(K_{pdiff}+K_{bY})[LacY-IPTG]_{ex}+K_{fY}[LacY][IPTG]-K_{dY\_IPTG}[LacY\_IPTG_{ex}]
+                        \frac{d[T7\_RNA\_pol]}{dt}=K_{tlT7}[mRNA_{T7}]-K_{dpT7}[T7\_RNA\_pol] \tag{10}
                     \end{equation}\]
-                  <li>Free LacI present (that is, not bounded to IPTG), which will prevent the transcription of T7 RNA polymerase<br></li>
-                    \[\begin{equation}
-                    \frac{d[LacI]_F}{dt}=(K_{tl}[mRNA_{LacI}]-K_{dpI}[LacI])-(K_{fI}[LacI][IPTG_{in}]-K_{bI}[LacI\_IPTG_{in}])
+                  <b>For the plasmid part of the E.coli:</b>
+                  <br>
+                  <br>
+                  <li>
+                  \[\begin{equation}
+                        \frac{d[mRNA_{PLacI}]}{dt}=K_{PtcI}-K_{PdmI}[mRNA_{PLacI}]\cdot (Copy\quad number) \tag{11}
                     \end{equation}\]
-                    <br>
-                    From here, \([IPTG_{in}]\) will be replaced by \([IPTG_{Pin}]\) ; intracellular IPTG due to facilitated diffusion by LacY produced by the plasmid of E.coli due to its copy number. The [IPTG] diffused by this virtue can bind to LacI-repressor produced by the genomic as well.
-                    <li>Production of T7 RNA polymerase mRNA:
-                    \(\phi\stackrel{K_{tcT7}}{\longrightarrow}mRNA_{T7}\)<br>
-                    Decay of T7 RNA polymerase mRNA:
-                     \(mRNA_{T7}\stackrel{K_{dmT7}}{\longrightarrow}\phi\)<br>
-                    Binding of free LacI and \(mRNA_{T7}\):
-                      \(LacI_{F}+mRNA_{T7}\stackrel{K_{aff}}{\longrightarrow}\phi\)<br></li>
-                    \[\begin{equation}
-                          \frac{d[mRNA_{T7}]}{dt}=K_{tcT7}-K_{dmT7}[mRNA_{T7}]-K_{aff}[LacI]_F
-                      \end{equation}\]
-                      <li>T7 RNA Polymerase production :
-                      \(mRNA_{T7}\longrightarrow{K_{tlT7}}mRNA_{T7}+T7\_RNA\_pol\)<br>
-                        \(T7\_RNA\_pol\stackrel{K_{dpT7}}{\longrightarrow}\phi\)<br></li>
-                      \[\begin{equation}
-                            \frac{d[T7\_RNA\_pol]}{dt}=K_{tlT7}[mRNA_{T7}]-K_{dpT7}[T7\_RNA\_pol]
-                        \end{equation}\]
-                      Considering the plasmid part of the E.coli, the copy number of pET28a is 40.
-                      <li>Production of LacI mRNA:
-                      \[\begin{equation}
-                          	\frac{d[mRNA_{PLacI}]}{dt}=K_{PtcI}-K_{PdmI}[mRNA_{PLacI}]\cdot Copy\quad number
-                      	\end{equation}\]
-                        <li>\[\begin{equation}
-                      	\frac{d[LacI_P]}{dt}=K_{Ptl}[mRNA_{PLacI}]-K_{PdpI}[LacI]
-                  	    \end{equation}\]</li>
-                        <li>\[\begin{equation}
-                      	\frac{d[LacI-IPTG_{in}]_P}{dt}=K_{PfI}[LacI_P][IPTG_{Pin}]-K_{PbI}[LacI-IPTG_{in}]_P
-                  	    \end{equation}\]
-                       </li>
-                       <li>
-                      	\[\begin{equation}
-                          	\frac{d[IPTG_{Pin}]}{dt}=K_{Ppdiff}([IPTG]_{ex}-[IPTG_{Pin}])+K_{Pfdiff}([LacY_P\_ IPTG_{Pex}])
-                      	\end{equation}\]
-                       </li>
-                       <li>
-                       	Production of LacY mRNA:</li><br>
+                    <li>
+
                         \[\begin{equation}
-                      	\frac{d[mRNA_{LacY}]_P}{dt}=K_{PtcY}[O_T]-K_{PdmY}[mRNA_{LacY}]_P
-                  	    \end{equation}\]
-                        <li>
-                      	Production of LacY:</li><br>
-                        \[\begin{equation}
-                        \frac{d[LacY]_P}{dt}=K_{PtlY}[mRNA_{LacY}]_P+(K_{Ppdiff}+K_{PbY})[LacY\_IPTG_{ex}]_P-K_{PfY}[LacY][IPTG_{ex}]-K_{PdY}[LacY]
-                      	\end{equation}\]
-                        <li>
-                      	\[\begin{equation}
-                         	\frac{d[LacY\_IPTG_{ex}]_P}{dt}=-(K_{Ppdiff}+K_{PbY})[LacY-IPTG]_{Pex}+K_{PfY}[LacY]_P[IPTG_{ex}]-K_{PdY\_IPTG}[LacY\_IPTG_{ex}]_P
-                            	\end{equation}\]
-                        </li>
-                        <li>
-                      	Free LacI:</li><br>
-                       \[\begin{equation}
-                          	\frac{d[LacI]_{PF}}{dt}=(K_{Ptl}[mRNA_{LacI}]_P-K_{PdpI}[LacI]_P)-(K_{PfI}[LacI]_P[IPTG_{Pin}]-K_{PbI}[LacI\_IPTG_{in}]_P)
-                      	\end{equation}\]
-                        <li>
-                      	Binding of RNA Polymerase:
-                      \(RNA\_pol\underset{K_{ub}}{\stackrel{K_{b}}{\rightleftharpoons}}RNA\_pol_{B}\)</li><br>
-                      \[\begin{equation}
-                        	\frac{d[T7\_RP_B]}{dt}=K_b[T7\_RNA\_pol]-K_{ub}[T7\_RP_B]-K_{aff}[LacI]_F
-                        \end{equation}\]
-                        <li>
-                      	Decay of mRNA Chitinase:
-                      \(mRNA_{Chitinase}{\stackrel{K_{dmChitinase}}{\longrightarrow}}\phi\)</li><br>
-                      \[\begin{equation}
-                        	\frac{d[mRNA_{Chitinase}]}{dt}=K_{leaky}+\frac{K_1[T7\_RP_B]^n}{[K_m]^n+[T7\_RP_B]^n}-K_{dmChitinase}[mRNA_{Chitinase}]
-                        \end{equation}\]
-                        <li>
-                        	Chitinase production:
-                      \(mRNA_{Chitinase}{\stackrel{K_{tlChitinase}}{\longrightarrow}}mRNA_{Chitinase}+Chitinase\)<br>
-                            	Decay of the chitinase protein:
-                      \(Chitinase{\stackrel{K_{dChitinase}}{\longrightarrow}}\phi\)</li><br>
-                      \[\begin{equation}
-                        	\frac{d[Chitinase]}{dt}=K_{tlChitinase}[mRNA_{Chitinase}]-K_{dChitinase}[Chitinase]
-                        \end{equation}\]
-                </ul>
+                    \frac{d[LacI_P]}{dt}=K_{Ptl}[mRNA_{PLacI}]-K_{PdpI}[LacI] \tag{12}
+                    \end{equation}\]</li>
+                    <li>\[\begin{equation}
+                    \frac{d[LacI-IPTG_{in}]_P}{dt}=K_{PfI}[LacI_P][IPTG_{Pin}]-K_{PbI}[LacI-IPTG_{in}]_P \tag{13}
+                    \end{equation}\]
+                   </li>
+                   <li>
+                    \[\begin{equation}
+                        \frac{d[IPTG_{Pin}]}{dt}=K_{Ppdiff}([IPTG]_{ex}-[IPTG_{Pin}])+K_{Pfdiff}([LacY_P-IPTG_{Pex}]) \tag{14}
+                    \end{equation}\]
+                   </li>
+                   <li>
+                    \[\begin{equation}
+                    \frac{d[mRNA_{LacY}]_P}{dt}=K_{PtcY}[O_T]-K_{PdmY}[mRNA_{LacY}]_P \tag{15}
+                    \end{equation}\]
+                    <li>
+                    \[\begin{equation}
+                    \frac{d[LacY]_P}{dt}=K_{PtlY}[mRNA_{LacY}]_P+(K_{Ppdiff}+K_{PbY})[LacY\_IPTG_{ex}]_P-K_{PfY}[LacY][IPTG_{ex}]-K_{PdY}[LacY] \tag{16}
+                    \end{equation}\]
+                    <li>
+                    \[\begin{equation}
+                      \frac{d[LacY\_IPTG_{ex}]_P}{dt}=-(K_{Ppdiff}+K_{PbY})[LacY-IPTG]_{Pex}+K_{PfY}[LacY]_P[IPTG_{ex}]-K_{PdY\_IPTG}[LacY\_IPTG_{ex}]_P \tag{17}
+                          \end{equation}\]
+                    </li>
+                    <li>
+
+                   \[\begin{equation}
+                        \frac{d[LacI]_{PF}}{dt}=(K_{Ptl}[mRNA_{LacI}]_P-K_{PdpI}[LacI]_P)-(K_{PfI}[LacI]_P[IPTG_{Pin}]-K_{PbI}[LacI-IPTG_{in}]_P) \tag{18}
+                    \end{equation}\]
+
+                    <b>Binding of T7 RNA Polymerase:</b>
+                    \[\begin{equation}
+                  RNA\_pol\underset{K_{ub}}{\stackrel{K_{b}}{\rightleftharpoons}}RNA\_pol_{B}
+                  \end{equation}\]
+                  \[\begin{equation}
+                      \frac{d[T7\_RP_B]}{dt}=K_b[T7\_RNA\_pol]-K_{ub}[T7\_RP_B]-K_{aff}[LacI]_F \tag{19}
+                    \end{equation}\]
+
+                    <b>Decay of mRNA Chitinase:</b>
+                    \[\begin{equation}
+                  mRNA_{Chitinase}{\stackrel{K_{dmChitinase}}{\longrightarrow}}\phi
+                   \end{equation}\]
+                  \[\begin{equation}
+                      \frac{d[mRNA_{Chitinase}]}{dt}=K_{leaky}+\frac{K_1[T7\_RP_B]^n}{[K_m]^n+[T7\_RP_B]^n}-K_{dmChitinase}[mRNA_{Chitinase}] \tag{20}
+                    \end{equation}\]
+
+                      <b>Chitinase production:</b>
+                    \[\begin{equation}
+                 mRNA_{Chitinase}{\stackrel{K_{tlChitinase}}{\longrightarrow}}mRNA_{Chitinase}+Chitinase
+                 \end{equation}\]
+                    Decay of the chitinase protein:
+                    \[\begin{equation}
+                    Chitinase{\stackrel{K_{dChitinase}}{\longrightarrow}}\phi
+                    \end{equation}\]
+
+                  \[\begin{equation}
+                      \frac{d[Chitinase]}{dt}=K_{tlChitinase}[mRNA_{Chitinase}]-K_{dChitinase}[Chitinase]\tag{21}
+                    \end{equation}\]
+            </ul>
               <br>
                 <br>
             <table class="table table-hover table-bordered">
@@ -1194,6 +1258,31 @@
           <p class="pl-20 pr-20">
             We here analyse the activity of bacterial Chitinase combo 2 consisting of domains from two chitinases - Serratia marcescens chitinase and Streptomyces orientalis chitinase. Here instead of Streptomyces orientalis we have used proxy species of the same genus Streptomyces griseus as the literature data for Streptomyces orientalis was unavailable. The dissociation constants and Vmax for both chitinases were determined from the literature survey.<sup>[12][13]</sup>
           </p>
+          \[\begin{equation}
+K_{D1}=\frac{[E][S]}{[ES]}\implies [ES]=\frac{[E][S]}{K_{D1}}   \tag{1}
+\end{equation}\]
+\[\begin{equation}
+K_{D2}=\frac{[ES][S]}{[ESS]}\implies [ESS]=\frac{[ES][S]}{K_{D2}}=\frac{[E][S]^{2}}{K_{D1}K_{D2}} (Using\quad (1))
+\end{equation}\]
+
+Relative to the Total Enzyme Concentration, \(E_T\)
+ \[\begin{equation}
+  \frac{[ES]}{[E_{T}]}=\frac{[ES]}{[E]+[ES]+[ESS]}=\frac{\frac{[E][S]}{K_{D1}}}{[E]+\frac{[E][S]}{K_{D1}}+\frac{[E][S]^{2}}{K_{D1}K_{D2}}}=\frac{\frac{[S]}{K_{D1}}}{1+\frac{[S]}{K_{D1}}+\frac{[S]^2}{K_{D1}K_{D2}}}
+\end{equation}\]
+
+ \[\begin{equation}
+\frac{[ESS]}{[E_T]}=\frac{[ESS]}{[E]+[ES]+[ESS]}=\frac{\frac{[E][S]^2}{K_{D1}K_{D2}}}{[E]+\frac{[E][S]}{K_{D1}}+\frac{[E][S]^2}{K_{D1}K_{D2}}}=\frac{\frac{[S]^2}{K_{D1}K_{D2}}}{1+\frac{[S]}{K_{D1}}+\frac{[S]^2}{K_{D1}K_{D2}}}
+\end{equation}\]
+
+The total velocity of this system is given by:<br>
+ \[\begin{equation}
+v=\frac{V_{max1}\frac{[S]}{K_{D1}}+V_{max2}\frac{[S]^2}{K_{D1}K_{D2}}}{1+\frac{[S]}{K_{D1}}+\frac{[S]^2}{K_{D1}K_{D2}}}
+\end{equation}\]
+Where,<br>
+\(K_{D1}\)= Dissociation constant for chitinase of <i>Serratia marcescens</i><br>
+\(K_{D2}\)= Dissociation constant for chitinase of <i>Amycolatopsis orientalis</i><br>
+\(V_{max1}=K_{cat1}[E_T] and V_{max2}=K_{cat2}[E_T]\)
+
           <p class="pl-20 pr-20">
             The Vmax for chitinase was found to be 2.3739 mmol/min, which gives us an idea of how adding domains from high activity enzymes could in theory improve the efficiency of low activity enzymes.
           </p>
@@ -1235,6 +1324,158 @@
           <p class="pl-20 pr-20">
             PLGA degradation governs protein solubilization and release. PLGA degradation is promoted in the MS center due to the polymer autocatalytic degradation mechanism, causing a decrease in pH and enhancing the degradation process.
           </p>
+          \[\begin{equation}
+	\rho=\frac{r}{R_{MS}}  \tag{1}
+\end{equation}\]
+Where, <br>
+\(\rho\)=  Non-dimensional results<br>
+RMS=Average radius of Microsphere<br>
+r= Generic radius within Microsphere<br>
+
+Neglecting the initial hydration phase,<br>
+\[\begin{equation}
+A+P{\stackrel{k_1,k_{-1}}{\longleftarrow}}{A\cdot P{\stackrel{k_2}{\longrightarrow}}A+S  \tag{2}
+\end{equation}\]
+<br>
+Where,<br>
+A= Soluble acid (carbonic acid in present blood)<br>
+P= Non-degraded polymer acting as substrate<br>
+\(A\cdot P\)= Partially degraded, insoluble polymer<br>
+\(k_1\)= Rate constant for forward reaction<br>
+\(k_{-1}\)= Rate constant for backward reaction<br>
+\(k_2\)= Rate constant for final degradation<br>
+
+Equation (2) can be considered as a Michaelis-Menten equation. Approximating the quasi steady state, we have,<br>
+
+\[\begin{equation}
+    k_1[A][P]=(k_{-1}+k_2)[A\cdot P]   \tag{3}
+\end{equation}\]
+
+ \[\begin{equation}
+	[A\cdot P]=\frac{k_1[A]_0[P]}{k_1[P]+k_{-1}+k_2}   \tag{4}
+\end{equation}\]
+Where,<br>
+\([A]_0\)= Initial acid concentration, and \([A]+[P]=[A]_0\)
+
+<br>
+The rate of soluble product generation,<br>
+\[\begin{equation}
+ 	\frac{d[S]}{dt}= k_2[A\cdot P]=\frac{k_1k_2[A]_0[P]}{k_1[P]+k_{-1}+k_2}  \tag{5}
+\end{equation}\]
+
+<br>
+\[\begin{equation}
+	\frac{d[S]}{dt}=\frac{k_0[P]}{K_M+[P]}  \tag{6}
+\end{equation}\]
+Where,<br>
+\(K_M=\frac{(k_{-1}+k_2)}{k_1}\),  estimates the polymer-acid affinity, low KM indicates high affinity<br>
+\(R_0=k_2\cdot A_0\)
+
+<br>
+\[\begin{equation}
+	[S]=\frac{m_S}{V_{MS}MW_S}   \tag{7}
+\end{equation}\]
+Where,<br>
+\(m_S\)= Mass of soluble products<br>
+\(MW_S\)= Molecular weight of soluble products<br>
+\(V_{MS}\)= Volume of a single MS<br>
+
+\[\begin{equation}
+	\frac{d[S]}{dt}=\frac{1}{V_{MS}MW_S}\frac{dm_S}{dt}  \tag{8}
+\end{equation}\]
+
+Substituting (8) in equation (6),
+\[\begin{equation}
+    \frac{dm_S}{dt}=V_{MS}MW_S\frac{R_0[P]}{K_M+[P]}  \tag{9}
+\end{equation}\]
+<br>
+\[\begin{equation}
+    [P]=\frac{m_P}{V_{MS}MW_P}   \tag{10}
+\end{equation}\]
+Where,<br>
+\(m_P\)= Time-dependent mass of PLGA<br>
+\(MW_P\) = Number-average molecular weight of PLGA<br>
+
+Substituting (10) in equation (9),
+\[\begin{equation}
+\frac{dm_S}{dt}=V_{MS}MW_S\frac{R_0m_P}{K_MV_{MS}MW_P+m_P}  \tag{11}
+\end{equation}\]
+<br>
+
+\[\begin{equation}
+    \mu _S=\frac{m_S}{m_{MS,0}}   \tag{12}
+\end{equation}\]
+<br>
+
+\[\begin{equation}
+    \mu _P=\frac{m_p}{m_{MS,0}}    \tag{13}
+\end{equation}\]
+<br>
+
+\(\mu_P + \mu_S=1\)
+
+\[\begin{equation}
+    \omega _P=\frac{MW_P}{MW_{P,0}}   \tag{14}
+\end{equation}\]
+<br>
+Where,<br>
+\(m_{MS,0}\)=Mass of single microspore at time 0<br>
+\(MW_{P,0}\)= PLGA molecular weight at time 0<br>
+\(\mu_P\)= Non-dimensional mass of residual polymer<br>
+\(\mu_S\)= Non-dimensional mass of soluble products <br>
+\(\omega _P\)= Non-dimensional polymer weight normalized with respect to its initial value<br>
+
+\[\begin{equation}
+    \frac{d\mu_S}{dt}=\frac{B_0(1-\mu _S)}{\psi _{\omega_{P}}+1-\mu _S}  \tag{15}
+\end{equation}\]
+<br>
+
+\[\begin{equation}
+    B_0=\frac{V_{MS}MW_SR_0}{m_{MS,0}}  \tag{16}
+\end{equation}\]
+<br>
+
+
+\[\begin{equation}
+    \psi=\frac{K_MV_{MS}MW_{P,0}}{m_{MS,0}}   \tag{17}
+\end{equation}\]
+<br>
+
+\[\begin{equation}
+    \omega _P=e^{(-k_{deg}t)}  \tag{18}
+\end{equation}\]
+Where,<br>
+\(k_{deg}\)= Degradation constant of the polymer<br>
+
+Polymer loss (i.e., generation of soluble acids) takes place after an induction time, \(t_{ind}\),<br>
+Thus, equation (15) can be modified by including a heaviside function, as follows,<br>
+
+\[\begin{equation}
+    \frac{d\mu_S}{dt}=\frac{B_0(1-\mu _S)}{\psi _{\omega_{P}}+1-\mu _S}H(t-t_{ind})  \tag{19}
+\end{equation}\]
+<br>
+
+To account for the continuous (non-discrete) transition of µS in time, Heaviside function has been mollified as shown in the following Equation
+\[\begin{equation}
+    \frac{d\mu_S}{dt}=\frac{1}{2}\frac{B_0(1-\mu _S)}{\psi _{\omega_{P}}+1-\mu _S}[tanh[\alpha (t-t_{ind})]+1]   \tag{20}
+\end{equation}\]<br>
+given the initial condition of
+\[\begin{equation}
+µ_S(0)=0 \tag{21}
+\end{equation}\]
+<br>
+
+Assuming  density of PLGA is constant during degradation, equation (14) can be written as,<br>
+\[\begin{equation}
+    \mu _P=\frac{V_P}{V_{MS}}=1-R^3_f(t)   \tag{22}
+\end{equation}\]
+<br>
+
+\[\begin{equation}
+    R_f(t)=\sqrt[3]{\mu _S}   \tag{23}
+\end{equation}\]
+<br>
+
           <div class="image-block, text-center">
             <img src="assets/img/drylab/nano_graph.png" alt="sample image" class="img-fluid">
             <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
