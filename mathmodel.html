@@ -393,7 +393,7 @@
                       Scattering of light by a replicating population over time, and hence the changing OD is a good proxy for the growth of fungus instead of measuring its changing radius.<sup>[4]</sup>
                     </p>
                     <p class="pl-20 pr-20">
-                      The fungal species were grown in a 96-well plate in a PDB (Potato dextrose broth) medium, with spores suspended in 1x PBS (Phosphate buffered saline), and observations were taken 4-5 days for an interval of 6 hours at 605nm. The assumption is made that the spore suspension has been uniformly distributed throughout the well.
+                      The fungal species were grown in a 96-well plate in a PDB (Potato dextrose broth) medium, with spores suspended in 1X PBS (Phosphate buffered saline), and observations were taken 4-5 days for an interval of 6 hours at 605nm. The assumption is made that the spore suspension has been uniformly distributed throughout the well.
                     </p>
                     <div class="image-block, text-center">
                       <img src="assets/img/drylab/r.oryzae_1XPDB.png" alt="sample image" class="img-fluid">
@@ -474,7 +474,12 @@
                   I=I_{min}+\frac{I_{max}-I_{min}}{1+10^{((conc\; -\; logIC_{50})\times \text{Hill slope})}}
                   \end{equation}
                   \]
+
+
                   <br>
+                  <p class="pl-20 pr-20">Where,</p>
+                  \[I_{min}=\text{Lowest Inhibition}\]
+                  \[I_{max}=\text{Highest Inhibition}\]
                   <br>
                   <div class="image-block, text-center">
                     <img src="assets/img/drylab/IC50_A.versicolor.png" alt="sample image" class="img-fluid">
@@ -736,9 +741,9 @@
           <p clas=="pl-20 pr-20">The graph has been plotted using JSim Version 2 software, by putting all the required values. The code can be found here.</p>
           <div class="image-block, text-center">
             <img src="assets/img/drylab/LR_interaction.png" alt="sample image" class="img-fluid">
-            <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
+            <p><strong>Figure 1.</strong> Binding activity of the recombinant </p>
           </div>
-          <p clas=="pl-20 pr-20">From the graph and the concentration of the Ligand-Receptor complex, it can be concluded that the engineered chitinases have more tendency to bind to the chitin polymer than the wild-type chitinase at any given time.</p>
+          <p clas=="pl-20 pr-20">From the graph and the concentration of the Ligand-Receptor complex, it can be concluded that adding binding domains from a high-efficiency chitinase to Catalytic domains of low-efficiency chitinase increases the binding efficiency of low-efficiency chitinase, and thus the recombinant chitinase has higher binding efficiency than its parent wild type chitinase.</p>
           <p clas=="pl-20 pr-20">Note: This model depicts the binding activity of the protein to chitin octamer; itThe backward does not show the antifungal activity of the engineered protein, as only chitin polymer is taken into consideration, rather than the complex cell wall of the fungus.</p>
           <br>
           <br>
@@ -1295,9 +1300,6 @@
             <img src="assets/img/drylab/enzyme_activity.png" alt="sample image" class="img-fluid">
             <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
           </div>
-          <p class="pl-20 pr-20">
-            We here analyse the activity of bacterial Chitinase combo 2 consisting of domains from two chitinases - Serratia marcescens chitinase and Streptomyces orientalis chitinase. Here instead of Streptomyces orientalis we have used proxy species of the same genus Streptomyces griseus as the literature data for Streptomyces orientalis was unavailable. The dissociation constants and Vmax for both chitinases were determined from the literature survey.<sup>[12][13]</sup>
-          </p>
           \[\begin{equation}
 K_{D1}=\frac{[E][S]}{[ES]}\implies [ES]=\frac{[E][S]}{K_{D1}}   \tag{1}
 \end{equation}\]
@@ -1322,10 +1324,44 @@ Where,<br>
 \(K_{D1}\)= Dissociation constant for chitinase of <i>Serratia marcescens</i><br>
 \(K_{D2}\)= Dissociation constant for chitinase of <i>Amycolatopsis orientalis</i><br>
 \(V_{max1}=K_{cat1}[E_T] and V_{max2}=K_{cat2}[E_T]\)
+          <p class="pl-20 pr-20">
+            We here analyse the activity of bacterial Chitinase combo 2 consisting of domains from two chitinases - Serratia marcescens chitinase and Streptomyces orientalis chitinase. Here instead of Streptomyces orientalis we have used proxy species of the same genus Streptomyces griseus as the literature data for Streptomyces orientalis was unavailable. The dissociation constants and Vmax for both chitinases were determined from the literature survey.<sup>[12][13]</sup>
+          </p>
+          <table class="table table-hover table-bordered">
+          <thead>
+          </thead>
+          <tbody>
+<tr>
+<td><p>K_{D1}</p></td>
+<td><p>3.36*10^(-5)</p></td>
+</tr>
+
+<tr>
+<td><p>K_{D2}</p></td>
+<td><p>4.43*10^(-6)</p></td>
+</tr>
+
+<tr>
+<td><p>Vmax1</p></td>
+<td><p>0.18mmol/min</p></td>
+</tr>
+
+<tr>
+<td><p>Vmax2</p></td>
+<td><p>2.4mmol/min</p></td>
+</tr>
+
+</tbody>
+</table>
 
           <p class="pl-20 pr-20">
             The Vmax for chitinase was found to be 2.3739 mmol/min, which gives us an idea of how adding domains from high activity enzymes could in theory improve the efficiency of low activity enzymes.
           </p>
+          <div class="image-block, text-center">
+            <img src="assets/img/drylab/enzyme_activity_01.png" alt="sample image" class="img-fluid">
+            <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
+          </div>
+          <p class="pl-20 pr-20">Further plotting Lineweaver Burk Plot:</p>
           <div class="image-block, text-center">
             <img src="assets/img/drylab/lineweaver_plot.png" alt="sample image" class="img-fluid">
             <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
@@ -1351,7 +1387,7 @@ Where,<br>
           <p class="pl-20 pr-20">
             Protein release from PLGA Microsphere(MS) is an autocatalytic polymer degradation mechanism, involving 3 prominent steps:<sup>[14]</sup>
           </p>
-          <ul>
+          <ul class="unordered-list">
             <li>Water intruding in the device through its micro/macropores, and subsequent occurring of matrix plasticization</li>
             <li>Hydrolytically initiation of PLGA degradation at chain backbone and production of  acidic by-products</li>
             <li>Produced acids further catalyze polymer degradation</li>
@@ -1374,7 +1410,7 @@ r= Generic radius within Microsphere<br>
 
 Neglecting the initial hydration phase,<br>
 \[\begin{equation}
-A+P{\stackrel{k_1,k_{-1}}{\longleftarrow}}{A\cdot P{\stackrel{k_2}{\longrightarrow}}A+S  \tag{2}
+A+P \stackrel{k_1,k_{-1}}{\longleftarrow} A \cdot P \stackrel{k_2}{\longrightarrow} A+S  \tag{2}
 \end{equation}\]
 <br>
 Where,<br>
@@ -1515,7 +1551,7 @@ Assuming  density of PLGA is constant during degradation, equation (14) can be w
     R_f(t)=\sqrt[3]{\mu _S}   \tag{23}
 \end{equation}\]
 <br>
-
+          <p class="pl-20 pr-20">Note: \(B_0,t_{ind}, \psi\) are all adjustable parameters.</p>
           <div class="image-block, text-center">
             <img src="assets/img/drylab/nano_graph.png" alt="sample image" class="img-fluid">
             <p><strong>Figure 1.</strong> Unannotated image, not resized yet</p>
