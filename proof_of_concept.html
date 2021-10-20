@@ -70,9 +70,9 @@
                                                     <ul class="submenu">
                                                         <li><a href="wetlab.html" class="nav-link">Overview</a></li>
                                                         <li><a href="fungus_identification.html" class="nav-link">Fungus Identification</a></li>
-                                                        <li><a href="experiments_results.html" class="nav-link">Experiments and Results</a></li>
-                                                        <li><a href="engineering.html" class="nav-link">Engineering</a></li>
+                                                        <li><a href="experiments.html" class="nav-link">Experiments</a></li>
                                                         <li><a href="proof_of_concept" class="nav-link">Proof of concept</a></li>
+                                                        <li><a href="engineering.html" class="nav-link">Engineering</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="drylab.html">Dry Lab</a>
@@ -97,8 +97,7 @@
                                                 <li><a href="safety.html">Safety</a></li>
                                                 <li><a href="human_practices.html">Human Practices</a>
                                                     <ul class="submenu">
-                                                        <li><a href="human_practices.html" class="nav-link">Overview</a></li>
-                                                        <li><a href="integrated_human_practices.html" class="nav-link">Integrated Human Practices</a></li>
+                                                        <li><a href="human_practices.html" class="nav-link">Integrated Human Practices</a></li>
                                                         <li><a href="education.html" class="nav-link">Education and Communication</a></li>
                                                         <li><a href="sustainability.html" class="nav-link">Sustainability</a></li>
                                                         <li><a href="mycoexpo.html" class="nav-link">MycoExpo</a></li>
@@ -117,7 +116,7 @@
                                                       <li><a href="attributions.html" class="nav-link">Attributions</a></li>
                                                       <li><a href="collaborations.html" class="nav-link">Collaborations</a></li>
                                                       <li><a href="sponsors.html" class="nav-link">Sponsors</a></li>
-                                                      <li><a href="https://igem.org/2020_Judging_Form?id=3979" class="nav-link">Judging Form</a></li>
+                                                      <li><a href="https://igem.org/2021_Judging_Form?id=3979" class="nav-link">Judging Form</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -173,12 +172,302 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle text-left mb-30">
                             <h2>Proof of concept</h2>
-                            <p class="pl-20 pr-20">Our team has genetically engineered four different recombinant chitinases this year through careful domain engineering and a thorough literature survey. We hypothesise that the recombinant chitinase produced will have higher chitinolytic activity than the parent chitinases. As a proof of concept, the chitinase activity was measured and compared to the activity of wild type chitinase provided in the literature. We also performed the Zone of Inhibition assay in order to visualise if our chitinase had some chitinolytic activity. Out of the four recombinant chitinases, the team successfully cloned and expressed Bacterial Chitinase Combo 2 protein in E.coli BL21(DE3). The protein was tagged with 6X His Tag which helped in the purification of our protein with Ni-NTA.</p>
-                        </div>
-                        <div class="image-block, text-center">
-                          <img src="assets/img/wetlab/DNSA-01.jpg" alt="sample image" class="img-fluid">
-                          <p><strong>Figure 1.</strong> Unannotated image</p>
-                        </div>
+                            <p class="pl-20 pr-20">Our team has genetically engineered four different recombinant chitinases this year through careful domain engineering and a thorough literature survey. We hypothesize that the recombinant chitinase produced will have higher chitinolytic activity than the parent chitinases. As a proof of concept, the chitinase activity was measured and compared to the activity of wild type chitinase provided in the literature. We also performed the Zone of Inhibition assay in order to visualize if our chitinase had some chitinolytic activity. <br /> Out of the four recombinant chitinases, the team successfully cloned and expressed the Bacterial Chitinase Combo 2 protein <a href="http://parts.igem.org/Part:BBa_K3979003 " class="text-warning">[BBa_K3979003] </a> in E. coli BL21(DE3). The protein was tagged with 6X His Tag which helped in the purification of our protein with Ni-NTA. The functionality of our protein was measured using two methods:</p>
+                            <ol class="ordered-list">
+                              <li><b>DNS assay measures the amount of N-Acetylglucosamine released when the enzyme degrades Colloidal Chitin.</b></li>
+                              <li><b>Zone of Inhibition Assay is a qualitative analysis for measuring the chitinolytic activity of our protein.</b></li>
+                            </ol>
+                            <br />
+                            <h2 class="text-center">DNS Assay</h2>
+                            <h4>Principle of the Reaction:</h3>
+                            <p class="pl-20 pr-20">DNS (3, 5-Dinitrosalicylic acid) is a widely used reagent to measure the amount of reducing sugar in various biochemical reactions. It detects the presence of reducing the sugar by reacting with their carbonyl group (C=O), during which it gets reduced to 3- amino-
+                            5-nitrosalicylic acid (ANS). ANS under alkaline conditions is converted to a reddish coloured complex which has an absorbance maximum at 540 nm. The colour of the reagent changes from yellow to orange or red, depending upon the concentration of reducing sugar present <sup>[1]</sup>.</p>
+                            <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/DNS_ANS1.jpg" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> Reduction of DNS ANS</p>
+                              </div>
+                              <br />
+                                <h4>Plotting a Standard Graph for N-Acetylglucosamine:</h4>
+                                <p class="pl-20 pr-20"> In order to quantify the amount of N-Acetylglucosamine present in the reaction volume, a standard graph for the concentration of NAG vs OD540 was plotted.
+                                </p>
+                                <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/DNS_ANS2.png" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> Standard Plot for N-Acetylglucosamine</p>
+                              </div>
+                              <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/DNS_ANS5.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> DNS Assay with different NAG concentrations. Higher concentrations of NAG show a darker colour compared to lower concentrations of NAG</p>
+                              </div>
+                              <br />
+                              <br />
+                                 <h3>DNS Assay For Enzyme:</h3>
+                                 <br>
+                                 <p class="pl-20 pr-20"> DNS Assay was performed for quantifying the activity of our recombinant chitinase. 100 μL of the enzyme was added to 100 μL of the substrate (1% (w/v) Colloidal Chitin) and incubated at 40°C. The amount of NAG released was estimated by using DNS and correlating the OD540 value to the Standard NAG Curve. The experiment was carried out in triplicates and the mean values are provided below.
+                                </p>
+                                <table class="table table-hover table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Sample (concentration)</th>
+                                      <th scope="col">Mean Sample OD- Mean Blank OD</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                    <td><p>1.1535 mg/mL</p></td>
+                                    <td><p>0.0982</p></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <p class="pl-20 pr-20">The Enzymatic Activity was calculated in Units/mg using the following formula.</p>
+                                <p class="pl-20 pr-20">The Specific Activity of our enzyme (as calculated from the formula above) is 0.5635 U/mg.
+                                </p>
+
+                               \[\begin{equation}
+                              \text{Specific activity} \; (U/mg) = \frac{\text{Micromoles of NAG released}}{\text{conc. Of enzyme (mg/mL)}\cdot \text{Incubation time (min)}}
+                              \end{equation}\]
+
+                              <br />
+                              <br />
+                              <h2 class="text-center">Zone Of Inhibition Assay</h2>
+                              <p class="pl-20 pr-20">
+                                The Zone of inhibition (ZOI)  is a circular area around the spot of the antifungal in which the fungus does not grow. Chitinase can hinder the growth of fungus as it can degrade the cell wall of fungus consisting of chitin. The region without fungal colonies that is the Zone of Inhibition will be in a different color as compared to other regions of fungal growth. There is a marked difference and is easily visible to the naked eye.  Larger the diameter more will be the antifungal activity of protein. Thus, the zone of inhibition can be used to measure the susceptibility of the fungi to the applied chemical
+                              <sup>[2]</sup>.
+                              </p>
+                              <p class="pl-20 pr-20">
+                                This experiment was performed to check the antifungal activity of
+                                <ul class="ordered-list">
+                                  <li>Our engineered chimeric chitinase: Bacterial chitinase combo 2 <a href="http://parts.igem.org/Part:BBa_K3979003 " class="text-warning">[BBa_K3979003] </a>
+                                  <li>ST, wild-type chitinase derived from <i>Streptomyces orientalis </i> (also known <i>Amycolatopsis orientalis</i>) strain B-37 <a href="http://parts.igem.org/Part:BBa_K3979010" class="text-warning">[BBa_K3979010] </a>
+                                </p>
+                                <br />
+                              <h3><b>ZOI by BC2</b></h3>
+
+                                <p class="pl-20 pr-20">
+                                  The antifungal activity of BC2 was checked on the different genera of fungi. Three fungal samples were considered: <i>Rhizopus oryzae</i>, <i>Aspergillus niger</i>, and <i>Aspergillus versicolor</i> for the ZOI experiment.
+                              <br />
+                              The experiment was done with the following concentrations of chitinase:
+
+                              </p>
+                                  <table class="table table-hover table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Fungal Sample</th>
+                                      <th scope="col">Chitinase concentration</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                    <td><p><i>R.oryzae</i></p></td>
+                                    <td><ol><li><p>3200μg/mL</p>
+
+                                    </li>
+                                    <li><p>3000μg/mL</p>
+
+                                    </li>
+                                    <li><p>2200μg/mL</p>
+
+                                    </li>
+                                    <li><p>1000μg/mL</p>
+
+                                    </li>
+                                    <li><p>700μg/mL</p>
+
+                                    </li>
+                                    </ol></td>
+                                    </tr>
+
+                                    <tr>
+                                    <td><p><i>A.niger</i></p></td>
+                                    <td><ol ><li><p>2200μg/mL</p>
+
+                                    </li>
+                                    </ol></td>
+                                    </tr>
+
+                                    <tr>
+                                    <td><p><i>A.versicolor</i></p></td>
+                                    <td><ol ><li><p>3000μg/mL</p>
+
+                                    </li>
+                                    <li><p>2200μg/mL</p>
+
+                                    </li>
+                                    <li><p>700μg/mL</p>
+
+                                    </li>
+                                    </ol></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                 <p class="pl-20 pr-20">
+                                  Control: PBS (Phosphate buffered saline) <br />
+                              The experiment was carried out in technical triplicates.
+                              </p>
+                              <br />
+
+                                <h3>Observations</h3>
+                                <br />
+                              <ol class="ordered-list">
+                                <li>
+                                <h4><i>Rhizopus oryzae</i></h4><br>
+                                <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_Rhizo1.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> Zone of inhibition with BC2 of conc. 3200μg/mL and 700μg/mL on <i>Rhizopus oryzae</i></p>
+                              </div>
+                              <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_Rhizo2.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> Zone of inhibition with BC2 of conc. 2200μg/mL on <i>Rhizopus oryzae</i></p>
+                              </div>
+                              <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_Rhizo3.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> Zone of inhibition with BC2 of conc. 2200μg/mL on <i>Rhizopus oryzae</i></p>
+                              </div>
+                              <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_Rhizo4.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong>  Zone of inhibition with BC2 of conc. 2200μg/mL on <i>Rhizopus oryzae</i>
+                              </div>
+
+                                <table class="table table-hover table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Concentration of chitinase</th>
+                                      <th scope="col">Observation</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                    <td><p>3200μg/mL</p></td>
+                                    <td><p>ZOI clearly visible</p></td>
+                                    </tr>
+                                    <tr>
+                                    <td><p>3000μg/mL</p></td>
+                                    <td><p>ZOI clearly visible</p></td>
+                                    </tr>
+                                    <tr>
+                                    <td><p>2200μg/mL</p></td>
+                                    <td><p>ZOI clearly visible</p></td>
+                                    </tr>
+                                    <tr>
+                                    <td><p>1000μg/mL</p></td>
+                                    <td><p>ZOI clearly visible</p></td>
+                                    </tr>
+                                    <tr>
+                                    <td><p>700μg/mL</p></td>
+                                    <td><p>No significant ZOI visible</p></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </li>
+                              <br />
+                              <li>
+                                <h4><i>Aspergillus versicolor</i></h4>
+                                <br>
+                                <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_Versi1.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> Zone of inhibition with BC2 of conc. 3000μg/mL and 700μg/mL on <i>Aspergillus versicolor</i></p>
+                              </div>
+                              <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_Versi2.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> Zone of inhibition with BC2 of conc. 2200μg/mL on <i>Aspergillus versicolor</i> </p>
+                              </div>
+                                <table class="table table-hover table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Concentration of chitinase</th>
+                                      <th scope="col">Observation</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                    <td><p>3000μg/mL</p></td>
+                                    <td><p>ZOI clearly visible</p></td>
+                                    </tr>
+                                    <tr>
+                                    <td><p>2200μg/mL</p></td>
+                                    <td><p>ZOI clearly visible</p></td>
+                                    </tr>
+                                    <tr>
+                                    <td><p>700μg/mL</p></td>
+                                    <td><p>No ZOI visible</p></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </li>
+                              <br />
+                              <li>
+                                <h4><i>Aspergillus niger</i></h4>
+                                <br>
+                                <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_niger.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> Zone of inhibition with BC2 of conc. 2200μg/mL on <i>Aspergillus niger</i> (bottom and top view)</p>
+                              </div>
+                                <table class="table table-hover table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Concentration of chitinase</th>
+                                      <th scope="col">Observation</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                    <td><p>2200μg/mL</p></td>
+                                    <td><p>ZOI clearly visible</p></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                 <p class="pl-20 pr-20">
+                                  Inference: It can be clearly visualised from the above images and observations that the Bacterial chitinase combo 2 shows a significant zone of inhibition for the enzyme concentrations above
+                              1 mg/mL for all the 3 fungal species.
+                                </p>
+                                <p class="pl-20 pr-20">
+                                  This experiment facilitates the idea that engineering new proteins by strategically combining different domains from various genus can still result in a functional protein with the desired activity. The above experiments proved that our engineered recombinant enzyme exhibited good chitinolytic activity against commonly found fungi in the environment.
+                                </p>
+                                <br />
+                              <h3><b>Zone of Inhibition using Streptomyces Chitinase</b></h3>
+                              <br>
+                              <p class="pl-20 pr-20">
+                                It has been previously shown that <i>Streptomyces orientalis</i> (also known <i>Amycolatopsis orientalis</i>) strain B-37 has the potential to kill Rhizopus oryzae[2]. As our recombinant chitinase BC2 was engineered by combining different domains of ChiA of <i>Amycolatopsis orientalis</i> strain B-37 and ChiB of <i>Serratia marcescens</i> strain QMB1466, we conducted a ZOI experiment to compare the antifungal activity of BC2 and ST against <i>Rhizopus oryzae</i>.
+                              </p>
+
+                              <p class="pl-20 pr-20">
+                                The concentration of both the enzymes taken was 749 μg/mL. The control was 1X PBS (Phosphate buffered saline) containing 0.1% SDS, 200mM NaCl and 10% glycerol. The BC2 was diluted using the same buffer to make its concentration same as that of ST. The experiment was carried out in technical triplicates two times as the first time all the three plates showed different results. Hence, the result is not conclusive. Repeats need to be done to get a confirmed output.
+                              </p>
+                              <p class="pl-20 pr-20">
+                                The BC2 protein used in the experiment was purified a week before the experiment that might have affected its antifungal activity while the ST protein was freshly purified. Ideally, the experiments were supposed to be done with both proteins having the same conditions but due to lack of time we were not able to purify both the proteins at the same time.
+                              </p>
+                              <h4 class="text-center">Observations</h4>
+                              <br>
+                              <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_ST_Rhizo1.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> BC2 & ST showing comparable antifungal activity against  <i>Rhizopus oryzae</i></p>
+                              </div>
+                              <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_ST_Rhizo2.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> ST showing more antifungal activity against  <i>Rhizopus oryzae</i> as compared to BC2</p>
+                              </div>
+                              <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_ST_Rhizo3.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> BC2 showing more antifungal activity against  <i>Rhizopus oryzae</i> as compared to ST</p>
+                              </div>
+                              <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_ST_Rhizo4.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> BC2 & ST showing comparable antifungal activity against  <i>Rhizopus oryzae</i></p>
+                              </div>
+                              <div class="image-block, text-center">
+                              <img src="assets/img/wetlab/results/BC2_ST_Rhizo5.JPG" alt="sample image" class="img-fluid">
+                              <p><strong>Fig.</strong> ST showing more antifungal activity against  <i>Rhizopus oryzae</i> as compared to BC2</p>
+                              </div>
+                              <p class="pl-20 pr-20">
+                                Even after repeating the experiment we were not able to come to the conclusion that whether BC2 has more antifungal activity or ST has more antifungal activity. In future we plan to repeat the experiment by taking both BC2 and ST being purified at same time and under the same conditions.
+                              </p>
+                              <br>
+                              <h3>References:</h3>
+                              <ol>
+                                <li>"DNSA Reagent", NCBE, 2021, <a href="http://www.ncbe.reading.ac.uk/materials/enzymes/dnsareagent.html" class="text-warning"><i>link</i></a>. Accessed 11 Oct 2021.</li>
+                                <li> <a href="https://ieeexplore.ieee.org/document/7544871" class="text-warning">Measurement of the Zone of Inhibition of an Antibiotic, IEEE Xplore.</a>
+                              </li>
+                              <ol>
+                              </div>
                     </div>
                     </div>
                 </div>
